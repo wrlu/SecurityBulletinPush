@@ -8,7 +8,7 @@ def get_latest_security_update():
         result = response.text
         ul_list = re.findall('iOS 和 iPadOS 的最新版本是 (.+?)。', result)
         latest_ver = ul_list[0]
-        link_no_cve_re = '<td>iOS {0} 和 iPadOS {0}<br>\\s<span class="note">(.+?)</span></td>'.format(latest_ver)
+        link_no_cve_re = '<td>iOS {0} 和 iPadOS {0}<br>\\s+<span class="note">(.+?)</span></td>'.format(latest_ver)
         link_cve_re = '<td><a href="(.+?)">iOS {0} 和 iPadOS {0}</a></td>'.format(latest_ver)
         td_list = re.findall(link_no_cve_re, result)
         if len(td_list) == 1:
