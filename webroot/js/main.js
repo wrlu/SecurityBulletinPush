@@ -14,6 +14,12 @@ $(function(){
             $("#ios-link").attr("href", result[2])
             $("#datetime").html(new Date().toLocaleString())
         })
-        
+        $.get("http://api.wrlus.com/security/qualcomm", {}, function(response) {
+            var exp = /\(\'(\S*)\'\, \'(\S*)\'\)/
+            var result = exp.exec(response)
+            $("#qualcomm-result").html(result[1])
+            $("#qualcomm-link").attr("href", result[2])
+            $("#datetime").html(new Date().toLocaleString())
+        })
     }
 });
