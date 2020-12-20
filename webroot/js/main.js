@@ -1,5 +1,5 @@
 $(function(){
-    if (window.location.pathname.endsWith("/index.html")) {
+    if (window.location.pathname.endsWith("/index.html") || window.location.pathname.endsWith("/")) {
         $.get("http://api.wrlus.com/security/android", {}, function(response) {
             var exp = /\(\'(\S*)\'\, \'(\S*)\'\)/
             var result = exp.exec(response)
