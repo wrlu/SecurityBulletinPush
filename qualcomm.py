@@ -21,14 +21,14 @@ month_table = {
 
 def get_latest_bulletin():
     latest_date = get_latest_bulletin_date()
-    return latest_date, base_url + '/' + latest_date
+    return latest_date, base_url + '/' + latest_date + '-bulletin'
 
 
 def get_latest_bulletin_date():
     response = __send_request__('/')
     if response.status_code == 200:
         result = response.text
-        td_list = re.findall('href="/company/product-security/bulletins/(.+?)-security-bulletin"', result)
+        td_list = re.findall('href="/company/product-security/bulletins/(.+?)-bulletin"', result)
         latest_date = td_list[0]
         return latest_date
     return ''
